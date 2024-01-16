@@ -1,0 +1,19 @@
+.d-flex {
+	display: flex;
+}
+
+.d-block {
+	display: block;
+}
+
+.ml-20 {
+	margin-left: 20px;
+}
+
+.mt-100 {
+	margin-top: 100px;
+}
+
+.p-30 {
+	padding: 30px;
+}

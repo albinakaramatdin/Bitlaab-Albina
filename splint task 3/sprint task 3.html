@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="sprintcss.css">
+	<title>Document</title>
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+	<table cellpadding="8">
+		<tr>
+			<td><b>Введите сумму:</b></td>
+			<td></td>
+			<td><b>KZT (tenge)</b></td>
+			<td><b>USD (dollar)</b></td>
+			<td><b>EURO (euro)</b></td>
+		</tr>
+		<tr>
+			<td>
+				<input type="" id="summa" onchange="check()">
+			</td>
+			<td>
+				<select id="convert">
+					<option value="KZT">Выберите валюту</option>
+					<option value="KZT">KZT</option>
+					<option value="USD">USD</option>
+					<option value="EUR">EUR</option>
+				</select>
+			</td>
+			<td>
+				<input id="KZT" readonly>
+			</td>
+			<td>
+				<input id="USD" readonly>
+			</td>
+			<td>
+				<input id="EUR" readonly>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>
