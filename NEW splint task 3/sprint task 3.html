@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Обмен валют</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+   <table cellpadding="10">
+       <tr>
+           <td>Введите сумму:</td>
+           <td></td>
+           <td>KZT(tenge)</td>
+           <td>USD(dollar)</td>
+           <td>EUR(euro)</td>
+       </tr>
+       <tr>
+           <td>
+               <input type="" id="summa" onchange="check()">
+           </td>
+           <td>
+               <select id="convert" onchange="check()">
+                   <option  value="KZT">TENGE</option>
+                   <option value="USD">DOLLAR</option>
+                   <option value="EUR">EURO</option>
+               </select>
+           </td>
+           <td>
+               <input readonly value="" id="kzt">
+           </td>
+           <td>
+                <input readonly id="usd">
+           </td>
+           <td>
+                <input readonly id="eur">
+           </td>
+       </tr>
+   </table>
+</body>
+</html>
