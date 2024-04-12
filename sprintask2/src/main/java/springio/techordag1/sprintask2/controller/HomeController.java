@@ -25,12 +25,12 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping(value = "/AddRequest")
+    @GetMapping(value = "/addRequest")
     public String getRequestPage(){
-        return "AddRequest";
+        return "addRequest";
     }
 
-    @PostMapping(value = "/AddRequest")
+    @PostMapping(value = "/addRequest")
     public String addRequestSubmit(@RequestParam(value = "username") String userName,
                                    @RequestParam(value = "courseName") String courseName,
                                    @RequestParam(value = "phoneNumber") String phoneNumber,
@@ -65,6 +65,21 @@ public class HomeController {
         applicationRequest.setHandled(true);
         applicationRequestRepository.save(applicationRequest);
         return "redirect:/home";
+    }
+
+
+    @GetMapping(value = "/trueRequests")
+    public String getPageTrueReqests(Model model){
+        List<ApplicationRequest> applicationRequestList = applicationRequestRepository.findByHandled(true);
+        model.addAttribute("appRequests",applicationRequestList);
+        return "trueRequests";
+    }
+
+    @GetMapping(value = "/falseRequests")
+    public String getPageFalseReqests(Model model){
+        List<ApplicationRequest> applicationRequestList = applicationRequestRepository.findByHandled(false);
+        model.addAttribute("appRequests",applicationRequestList);
+        return "falseRequests";
     }
 
 }

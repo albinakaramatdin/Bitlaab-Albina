@@ -35,39 +35,23 @@
         </div>
     </nav>
     <br>
-    <div class="row mt-3">
-        <div class="col-6 mx-auto">
-            <div class="mb-3">
-                <label class="form-label">ФИО: </label>
-                <input readonly th:value="${appDetail.getUserName()}" name="username" type="text" class="form-control"  aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Курс: </label>
-                <input readonly th:value="${appDetail.getCourseName()}" name="courseName" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Телефон: </label>
-                <input readonly th:value="${appDetail.getPhone()}" name="phoneNumber" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Комментарии: </label>
-                <textarea readonly th:text="${appDetail.getCommentary()}" name="comment" class="form-control"></textarea>
+    <div class="row">
+        <div class="col-sm-6" th:each="app:${appRequests}">
+            <div class="card">
+                <div class="card-body">
+                    <h3 style="color: red" th:if="${app.isHandled()==false}">*(Новая)</h3>
+                    <h5 class="card-title" th:text="${app.getUserName()}"></h5>
+                    <br>
+                    <p class="card-text" th:text="${app.getCourseName()}"></p>
+                    <p class="card-text" th:text="${app.getCommentary()}"></p>
+                    <p class="card-text" th:text="${app.getPhone()}"></p>
+                    <a style="text-decoration: none" th:href="@{'/DetailsRequest/'+ ${app.getId()}}">Подробнее</a>
+                </div>
+                <br>
             </div>
             <br>
-            <div style="display: flex">
-                <div>
-                    <form th:action="@{'/changeHandled/' +${appDetail.getId()}}" method="post">
-                        <button class="btn btn-success">Обработать заявку</button>
-                    </form>
-                </div>
-                <div style="margin-left: 10px">
-                    <form th:action="@{'/removeRequest/' +${appDetail.getId()}}" method="post">
-                        <button class="btn btn-danger">Удалить заявку</button>
-                    </form>
-                </div>
-            </div>
         </div>
-        <div>
-        </div>
+        <br>
+    </div>
 </body>
 </html>

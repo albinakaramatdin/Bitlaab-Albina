@@ -20,5 +20,7 @@ public class ApplicationRequest {
 
     @Column(name = "phoneNumber")
     private String phone;
+
+    @Column(name = "handled")
     private boolean handled;
 }
